@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy Policy | The Most Unwritten Automation</title><meta name="description" content="How The Most Unwritten Automation accesses, uses, stores, shares and deletes Google and YouTube user data."><link rel="stylesheet" href="/style.css"><!--GSV--></head><body>
+<header><div class="bar"><a class="brand" href="/">The Most Unwritten Automation</a><nav><a href="/">Home</a><a href="/privacy.html" aria-current="page">Privacy Policy</a><a href="/terms.html">Terms</a></nav></div></header>
+<main>
+<h1>Privacy Policy</h1>
+<p class="meta">Effective November 26, 2026 &middot; Applies to <strong>The Most Unwritten Automation</strong> (the &ldquo;Automation&rdquo;)</p>
+<p>The Automation is a private tool operated by the creator of the YouTube channel The Most Unwritten (&ldquo;we&rdquo;, &ldquo;us&rdquo;). It runs on our own Windows computer and is used only with our own YouTube channel. It is not offered to the public, and it does not collect data from viewers or from other YouTube users' accounts. This policy explains exactly what the Automation does with Google user data.</p>
+
+<h2>1. YouTube account authorization</h2>
+<p>The channel owner authorizes the Automation through Google's standard OAuth sign-in in a web browser. The Automation never sees or stores the Google account password. It requests these permissions:</p>
+<table>
+<tr><th>Permission (scope)</th><th>Why it is needed</th></tr>
+<tr><td><code>youtube.upload</code></td><td>Upload finished episodes to the channel.</td></tr>
+<tr><td><code>youtube.readonly</code></td><td>Read the channel's name and ID (to confirm the correct channel) and its list of recent uploads, including titles, descriptions, privacy status and scheduled publish times. This is used to prevent duplicate uploads and to find free publishing days.</td></tr>
+<tr><td><code>youtube.force-ssl</code></td><td>Update the privacy status and scheduled publish time of videos the Automation uploaded. This is used to set or repair a schedule and to keep test uploads private. The Automation does not post, edit or delete comments, playlists, subscriptions or other channel content.</td></tr>
+<tr><td><code>yt-analytics.readonly</code></td><td>Read performance statistics for the channel and its videos.</td></tr>
+</table>
+
+<h2>2. Video uploading and scheduling</h2>
+<p>For each episode that passes quality review, the Automation uploads the video file to the channel as a <strong>private</strong> video with a scheduled publish time of 4:00 PM America/New_York. The upload includes the episode's title, description, tags and hashtags, a made-for-kids setting, and YouTube's &ldquo;altered or synthetic content&rdquo; disclosure, because the narration voice is AI-generated. After the upload, the Automation reads the video's status back from YouTube to confirm the schedule was stored. YouTube then publishes the video at the scheduled time. The Automation keeps a local record of each uploaded video's ID and scheduled time.</p>
+
+<h2>3. YouTube Analytics data collection</h2>
+<p>Once a day, the Automation reads statistics for the channel's own published episodes from the YouTube Analytics API: views, estimated minutes watched, average view duration, average percentage viewed, likes, comments, shares and subscribers gained. It may also read channel totals for the last 28 days. These are aggregate numbers. They do not identify individual viewers, and the Automation does not access any viewer's personal information. The summary is stored in a single local file, which is replaced with fresh numbers each day.</p>
+
+<h2>4. How we use Google user data</h2>
+<p>Google user data is used only to provide the Automation's features described above: uploading, scheduling, avoiding duplicates, confirming the channel, and improving future episodes of our own channel. We do <strong>not</strong> sell Google user data. We do not use it for advertising, and we do not use it to determine credit-worthiness or for lending. We do not transfer it to anyone except as described in section 5, and no person reads it except the channel owner.</p>
+
+<h2>5. Data shared with OpenAI and Anthropic</h2>
+<h3>OpenAI</h3>
+<p>The Automation uses the OpenAI API to write episode scripts and metadata, to generate the narration voice, to transcribe narration for accuracy checks, and to review rendered video frames. The following is sent to OpenAI:</p>
+<ul>
+<li>our own story material: scripts, series notes, style guide, reference images, narration audio, and frames and captions of our own videos;</li>
+<li>the aggregate analytics summary described in section 3, together with our episode titles, so that future scripts can improve.</li>
+</ul>
+<p>No Google account credentials, tokens or viewer data are ever sent. Requests are made with response storage disabled. Under OpenAI's API data policy, API data is not used to train OpenAI's models by default; see <a href="https://openai.com/policies/privacy-policy">OpenAI's Privacy Policy</a>.</p>
+<h3>Anthropic</h3>
+<p>The channel owner uses Anthropic's Claude, in their own Claude account, to animate episodes in Roblox Studio and to maintain the Automation. Claude reads production files on our computer: scripts, quality reports, and a status file that lists our episodes' titles, YouTube video IDs and scheduled publish times. Analytics may be visible to Claude when the owner works on the Automation with it. The Automation does not send Google OAuth credentials or tokens to Anthropic. See <a href="https://www.anthropic.com/legal/privacy">Anthropic's Privacy Policy</a>.</p>
+<h3>AI model training</h3>
+<p>We do not use Google user data to develop, improve or train generalized artificial intelligence or machine-learning models. OpenAI API data is not used for model training by default, and the owner keeps model training turned off in their Claude account's privacy settings, so neither provider is permitted to train on the data we send.</p>
+
+<h2>6. Local encrypted credential storage</h2>
+<p>After sign-in, Google returns a refresh token that lets the Automation upload without asking the owner to sign in each time. The token and the app's OAuth client credentials are stored only on our computer. They are encrypted with Windows Data Protection (DPAPI), which ties them to our Windows user account, and they are kept outside any cloud-synced folder. The original unencrypted client file is deleted once the encrypted copy has been verified. Credentials are never written to logs and never sent anywhere except Google's own sign-in and token endpoints.</p>
+
+<h2>7. Data retention and deletion</h2>
+<table>
+<tr><th>Data</th><th>Kept for</th></tr>
+<tr><td>Encrypted refresh token and client credentials</td><td>Until access is revoked or the owner disconnects the Automation, then deleted.</td></tr>
+<tr><td>Daily analytics summary</td><td>Replaced daily. Deleted when access is revoked or the Automation is disconnected.</td></tr>
+<tr><td>Channel ID and name record</td><td>Deleted when access is revoked or the Automation is disconnected.</td></tr>
+<tr><td>Episode records: our video IDs, titles and scheduled times</td><td>Kept as production records of our own videos until the owner deletes them.</td></tr>
+<tr><td>Activity logs (they contain no credentials)</td><td>Automatically deleted after 90 days.</td></tr>
+</table>
+<p>If Google reports that access has been revoked, the Automation deletes the stored token and the YouTube data listed above the next time it runs. The owner can also run the Automation's disconnect command, which revokes the token with Google and deletes the same data immediately.</p>
+
+<h2>8. How to revoke access</h2>
+<p>You can revoke the Automation's access to your Google account at any time on the <a href="https://myaccount.google.com/connections">Google Account third-party connections page</a> (also reachable at <a href="https://security.google.com/settings/security/permissions">security.google.com/settings/security/permissions</a>). Revoking stops all uploads, scheduling and analytics access immediately and triggers the deletion described in section 7.</p>
+
+<h2>9. Compliance</h2>
+<p>The Automation's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. It also complies with the <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service">YouTube API Services Terms of Service</a> and the <a href="https://developers.google.com/youtube/terms/developer-policies">YouTube API Services Developer Policies</a>. The Automation uses YouTube API Services; see the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+<h2>10. Security</h2>
+<p>Connections to Google, OpenAI and Anthropic use HTTPS. Credentials are encrypted at rest as described in section 6. Spending limits and an emergency stop restrict what the Automation can do automatically.</p>
+
+<h2>11. Children</h2>
+<p>The Automation is a production tool used only by the adult channel owner. It does not collect information from children or from anyone else.</p>
+
+<h2>12. Changes and contact</h2>
+<p>If we change how the Automation handles data, we will update this page and its effective date. Questions or requests: <a href="mailto:support@macrofit.info">support@macrofit.info</a>.</p>
+
+</main>
+<footer><div class="bar"><span>&copy; 2026 The Most Unwritten. Contact: <a href="mailto:support@macrofit.info">support@macrofit.info</a></span><span><a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms of Service</a></span></div></footer>
+</body></html>
